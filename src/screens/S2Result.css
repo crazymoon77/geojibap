@@ -1,0 +1,192 @@
+.s2 { background: var(--bg); min-height: 100vh; }
+
+/* 예산 배너 */
+.s2-budget-banner {
+  background: var(--dark);
+  margin: 12px 16px;
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.s2-budget-left { display: flex; flex-direction: column; gap: 4px; }
+.s2-budget-label { font-size: 11px; color: #aaa; }
+.s2-budget-amount { font-size: 22px; font-weight: 900; color: #fff; }
+.s2-budget-right { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.s2-budget-used, .s2-budget-remain { font-size: 11px; color: #aaa; }
+.s2-budget-over { font-size: 11px; color: #ff7070; font-weight: 700; }
+.s2-progress-bar { height: 6px; background: #444; border-radius: 3px; margin-top: 6px; }
+.s2-progress-fill { height: 100%; background: #fff; border-radius: 3px; transition: width 0.4s; }
+.s2-progress-fill.over { background: #ff7070; }
+
+/* 영양 바 */
+.s2-nutri-bar {
+  background: var(--white);
+  margin: 0 16px 8px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-around;
+}
+.s2-nutri-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.s2-nutri-label { font-size: 10px; color: var(--gray); }
+.s2-nutri-val   { font-size: 14px; font-weight: 700; color: var(--dark); }
+
+/* 메뉴 카드 */
+.s2-meals { display: flex; flex-direction: column; gap: 10px; padding: 0 16px; }
+
+.s2-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  transition: all 0.2s;
+}
+.s2-card.done {
+  background: var(--done-light);
+  border-color: var(--strike);
+}
+
+.s2-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.s2-card-top-right { display: flex; align-items: center; gap: 8px; }
+.s2-time-badge {
+  background: var(--dark);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 10px;
+}
+.s2-time-badge.done { background: var(--strike); }
+.s2-check-icon {
+  width: 28px; height: 28px;
+  background: var(--green);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 900; font-size: 14px;
+}
+
+.s2-card-info { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.s2-card-emoji { font-size: 26px; }
+.s2-card-meta  { flex: 1; }
+.s2-card-name  { display: block; font-size: 15px; font-weight: 700; color: var(--dark); }
+.s2-card-name.done { color: var(--gray); font-weight: 400; }
+.s2-card-cost  { display: block; font-size: 12px; color: var(--gray); margin-top: 3px; }
+.s2-recipe-btn {
+  background: none; border: none; font-size: 11px;
+  font-weight: 700; color: var(--dark); cursor: pointer;
+  font-family: inherit; white-space: nowrap;
+}
+
+.s2-card-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* 절약 행 */
+.s2-save-row { margin-top: 12px; }
+.s2-save-divider { height: 1px; background: var(--border); margin-bottom: 8px; }
+.s2-save-retail {
+  display: flex; gap: 8px; align-items: center;
+  font-size: 11px; color: var(--gray); margin-bottom: 6px;
+}
+.s2-save-retail-price { color: var(--gray); }
+.s2-save-box {
+  background: var(--green-light);
+  border-radius: 8px;
+  padding: 7px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.s2-save-text   { font-size: 11px; color: var(--green-dark); }
+.s2-save-amount { font-size: 14px; font-weight: 900; color: var(--green); }
+
+/* 완료 버튼 */
+.s2-done-btn {
+  width: 100%;
+  height: 40px;
+  background: var(--dark);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: opacity 0.15s;
+}
+.s2-done-btn:active { opacity: 0.8; }
+
+.s2-done-banner {
+  background: var(--green-light);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.s2-done-text { font-size: 12px; font-weight: 700; color: var(--green); }
+.s2-recipe-again {
+  background: none; border: none; font-size: 11px;
+  color: var(--gray); cursor: pointer; font-family: inherit;
+}
+
+/* 재생성 버튼 */
+.s2-regen-btn {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--accent-light);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gray);
+  font-family: inherit;
+  transition: background 0.12s, color 0.12s;
+  -webkit-tap-highlight-color: transparent;
+}
+.s2-regen-btn:active:not(:disabled) { background: var(--light-gray); }
+.s2-regen-btn:disabled { opacity: 0.3; cursor: default; }
+.s2-regen-btn.spinning {
+  animation: spin 0.8s linear infinite;
+  color: var(--dark);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* 스켈레톤 */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+.s2-skel-card { pointer-events: none; }
+.s2-skel-row {
+  border-radius: 6px;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f4f4f4 50%, #e8e8e8 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite;
+}
+.s2-skel-badge  { width: 48px; height: 22px; margin-bottom: 14px; }
+.s2-skel-info-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.s2-skel-circle { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f4f4f4 50%, #e8e8e8 75%);
+  background-size: 800px 100%; animation: shimmer 1.4s infinite;
+}
+.s2-skel-lines { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.s2-skel-title  { height: 16px; width: 70%; }
+.s2-skel-sub    { height: 12px; width: 40%; }
+.s2-skel-chips-row { display: flex; gap: 6px; margin-bottom: 14px; }
+.s2-skel-chip   { height: 24px; width: 60px; border-radius: 12px; }
+.s2-skel-save   { height: 36px; border-radius: 8px; margin-top: 4px; }
+
+/* 하단 */
+.s2-bottom { padding: 16px; margin-top: 4px; }
+.s2-note { font-size: 10px; color: var(--gray); margin-bottom: 12px; }

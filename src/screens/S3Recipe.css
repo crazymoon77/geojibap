@@ -1,0 +1,119 @@
+.s3 { background: var(--bg); min-height: 100vh; padding-bottom: 32px; }
+
+.s3-title-card {
+  background: var(--dark);
+  margin: 12px 16px 0;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.s3-title-name { font-size: 18px; font-weight: 900; color: #fff; }
+.s3-title-meta { font-size: 12px; color: #aaa; margin-top: 8px; }
+.s3-title-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.s3-title-cost { font-size: 18px; font-weight: 900; color: #ddd; }
+.s3-title-cost-label { font-size: 10px; color: #888; }
+
+.s3-save-line {
+  background: var(--green-light);
+  margin: 8px 16px;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.s3-save-icon   { font-size: 12px; color: var(--green-dark); font-weight: 700; white-space: nowrap; }
+.s3-save-detail { font-size: 12px; font-weight: 700; color: var(--green); }
+
+.s3-section { padding: 0 16px; margin-top: 20px; }
+.s3-section-title {
+  font-size: 15px; font-weight: 700; color: var(--dark);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.s3-ingredient-list { margin-top: 4px; border-radius: 12px; overflow: hidden; }
+.s3-ingredient-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+}
+.s3-ingredient-row.even { background: var(--white); }
+.s3-ingredient-row.odd  { background: var(--accent-light); }
+.s3-ing-name   { font-size: 13px; font-weight: 700; color: var(--dark); width: 90px; }
+.s3-ing-amount { font-size: 12px; color: var(--gray); flex: 1; }
+.s3-ing-price  { font-size: 12px; color: var(--gray); }
+
+.s3-steps { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.s3-step-row { display: flex; align-items: flex-start; gap: 10px; }
+.s3-step-num {
+  width: 26px; height: 26px;
+  background: var(--dark);
+  border-radius: 13px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 12px; font-weight: 900;
+  flex-shrink: 0; margin-top: 2px;
+}
+.s3-step-box {
+  flex: 1;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+/* API 부가정보 (재료 미제공 시) */
+.s3-info-box {
+  margin-top: 8px;
+  background: var(--accent-light);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.s3-info-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+}
+.s3-info-label {
+  font-size: 11px;
+  color: var(--gray);
+  width: 80px;
+  flex-shrink: 0;
+}
+.s3-info-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+/* SUMRY 요약 표시 */
+.s3-sumry-box {
+  margin-top: 12px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+.s3-empty { font-size: 12px; color: var(--gray); padding: 10px 0 4px; }
+
+.s3-actions { padding: 24px 16px 0; }
+.s3-done-banner {
+  background: var(--green-light);
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+}

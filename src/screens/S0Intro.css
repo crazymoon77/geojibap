@@ -1,0 +1,164 @@
+.s0 {
+  background: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px 40px;
+}
+
+/* 히어로 */
+.s0-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 64px;
+}
+.s0-emblem {
+  width: 96px; height: 96px;
+  background: #2a2a2a;
+  border-radius: 48px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 44px;
+}
+.s0-brand {
+  margin-top: 16px;
+  font-size: 34px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1px;
+}
+.s0-brand-line {
+  margin-top: 8px;
+  width: 80px; height: 3px;
+  background: var(--green);
+  border-radius: 2px;
+}
+
+/* 카피 */
+.s0-copy { margin-top: 36px; }
+.s0-copy-headline {
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.3;
+}
+.s0-copy-sub {
+  font-size: 16px;
+  font-weight: 400;
+  color: #aaa;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.s0-copy-divider {
+  width: 36px; height: 2px;
+  background: var(--green);
+  border-radius: 1px;
+  margin: 16px 0;
+}
+.s0-copy-body {
+  font-size: 14px;
+  color: #888;
+  line-height: 1.6;
+}
+.s0-copy-body.bold {
+  font-weight: 700;
+  color: #ddd;
+}
+
+/* 3가지 카드 */
+.s0-card {
+  margin-top: 24px;
+  background: #242424;
+  border-radius: 20px;
+  padding: 8px 16px;
+}
+.s0-card-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #333;
+}
+.s0-card-row:last-child { border-bottom: none; }
+.s0-card-icon {
+  width: 36px; height: 36px;
+  background: #333;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.s0-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.s0-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+.s0-card-desc {
+  font-size: 11px;
+  color: #777;
+}
+
+/* 다짐 */
+.s0-vow {
+  margin-top: 20px;
+  background: #222;
+  border-left: 4px solid var(--green);
+  border-radius: 0 12px 12px 0;
+  padding: 14px 16px;
+}
+.s0-vow-quote {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ccc;
+}
+.s0-vow-author {
+  font-size: 11px;
+  color: #666;
+  margin-top: 6px;
+}
+
+/* 버튼 */
+.s0-actions {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.s0-resume-btn {
+  width: 100%;
+  height: 52px;
+  background: #2a2a2a;
+  border: 1.5px solid var(--green);
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green);
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s;
+}
+.s0-resume-btn:active { background: #333; }
+
+.s0-start-btn {
+  background: var(--green) !important;
+  font-size: 16px;
+  height: 56px;
+}
+.s0-share-btn {
+  width: 100%;
+  height: 46px;
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #777;
+  font-family: inherit;
+  cursor: pointer;
+}

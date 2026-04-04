@@ -1,0 +1,160 @@
+.s5 { background: var(--bg); min-height: 100vh; padding-bottom: 40px; }
+
+/* ── 통계 뱃지 ─────────────────────────────────────── */
+.s5-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: var(--dark);
+  margin: 12px 16px;
+  border-radius: 16px;
+  padding: 16px 20px;
+}
+.s5-stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.s5-stat-num {
+  font-size: 20px;
+  font-weight: 900;
+  color: #5dff9a;
+  line-height: 1;
+}
+.s5-stat-streak { font-size: 17px; }
+.s5-stat-label {
+  font-size: 10px;
+  color: #aaa;
+}
+.s5-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: #444;
+  flex-shrink: 0;
+  margin: 0 4px;
+}
+
+/* ── 캘린더 컨테이너 ────────────────────────────────── */
+.s5-calendar {
+  background: var(--white);
+  margin: 0 16px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 16px 12px 12px;
+}
+.s5-month-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* ── 요일 헤더 ──────────────────────────────────────── */
+.s5-dow-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 4px;
+}
+.s5-dow {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gray);
+  padding: 4px 0;
+}
+.s5-dow.sun { color: #e05c5c; }
+.s5-dow.sat { color: #5c8be0; }
+
+/* ── 주 행 & 날짜 셀 ────────────────────────────────── */
+.s5-week-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 2px;
+}
+
+.s5-cell {
+  aspect-ratio: 1 / 1.15;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px 2px 4px;
+  position: relative;
+  min-width: 0;
+}
+.s5-cell-empty { /* empty leading/trailing cell */ }
+
+/* 날짜 숫자 */
+.s5-day-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1;
+}
+.s5-day-num.sun { color: #e05c5c; }
+.s5-day-num.sat { color: #5c8be0; }
+
+/* 달성 셀 */
+.s5-cell.saved {
+  background: var(--green-light);
+}
+.s5-cell.saved .s5-day-num { color: var(--green-dark); }
+.s5-check {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--green);
+  line-height: 1;
+  margin-top: 2px;
+}
+.s5-saved-amt {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-top: 1px;
+  white-space: nowrap;
+}
+
+/* 오늘 (미달성) */
+.s5-cell.today {
+  border: 2px solid var(--dark);
+}
+.s5-today-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--dark);
+  border-radius: 50%;
+  margin-top: 4px;
+}
+
+/* 미래 */
+.s5-cell.future .s5-day-num { color: #ccc; font-weight: 400; }
+
+/* 과거 미달성 */
+.s5-cell.past .s5-day-num { color: #bbb; font-weight: 400; }
+
+/* ── 동기부여 메시지 ─────────────────────────────────── */
+.s5-motivation {
+  margin: 16px 16px 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+}
+.s5-motivation-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+}
+.s5-motivation-sub {
+  font-size: 12px;
+  color: var(--gray);
+  margin-top: 6px;
+  line-height: 1.5;
+}
