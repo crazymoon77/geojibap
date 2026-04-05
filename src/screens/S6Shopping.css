@@ -1,0 +1,27 @@
+.s6 { background: var(--bg); min-height: 100vh; padding-bottom: 40px; }
+.s6-summary { display: flex; align-items: center; gap: 10px; background: var(--dark); margin: 12px var(--pad-outer); border-radius: 14px; padding: 14px 16px; }
+.s6-summary-left { display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; }
+.s6-summary-count { font-size: 18px; font-weight: 900; color: #5dff9a; line-height: 1; }
+.s6-summary-label { font-size: 10px; color: #aaa; }
+.s6-progress-bar  { flex: 1; height: 6px; background: #444; border-radius: 3px; }
+.s6-progress-fill { height: 100%; background: #5dff9a; border-radius: 3px; transition: width 0.3s; }
+.s6-reset-btn { background: none; border: 1px solid #555; border-radius: 8px; color: #888; font-size: 11px; font-weight: 700; padding: 4px 10px; cursor: pointer; font-family: inherit; white-space: nowrap; flex-shrink: 0; }
+.s6-empty { padding: 40px var(--pad-outer); text-align: center; font-size: 13px; color: var(--gray); }
+.s6-body { padding: 0 var(--pad-outer); display: flex; flex-direction: column; gap: 16px; margin-top: 4px; }
+.s6-group { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.s6-group-title { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; background: var(--accent-light); font-size: 13px; font-weight: 700; color: var(--dark); border-bottom: 1px solid var(--border); }
+.s6-group-time { font-size: 11px; color: var(--gray); font-weight: 400; }
+.s6-item { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.12s; -webkit-tap-highlight-color: transparent; }
+.s6-item:last-child { border-bottom: none; }
+.s6-item:active { background: var(--accent-light); }
+.s6-item.done { background: #f9f9f9; }
+.s6-checkbox { width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; font-weight: 900; color: #fff; transition: background 0.15s, border-color 0.15s; }
+.s6-checkbox.checked { background: var(--green); border-color: var(--green); }
+.s6-item-info { flex: 1; display: flex; align-items: baseline; gap: 6px; min-width: 0; }
+.s6-item-name { font-size: 13px; font-weight: 700; color: var(--dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.s6-item.done .s6-item-name { color: var(--gray); text-decoration: line-through; }
+.s6-item-amount { font-size: 11px; color: var(--gray); white-space: nowrap; }
+.s6-item-links { display: flex; gap: 4px; flex-shrink: 0; }
+.s6-buy-btn { display: inline-flex; align-items: center; padding: 3px 7px; border-radius: 7px; font-size: 10px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.s6-buy-coupang { background: #fee500; color: #1a1a1a; }
+.s6-buy-naver   { background: #03c75a; color: #fff; }

@@ -1,0 +1,21 @@
+.s8 { min-height: 100vh; background: #111; display: flex; align-items: center; justify-content: center; padding: 24px var(--pad-outer); }
+.s8-box { width: 100%; max-width: 360px; display: flex; flex-direction: column; align-items: center; }
+.s8-logo  { font-size: 48px; line-height: 1; margin-bottom: 8px; }
+.s8-brand { font-size: 22px; font-weight: 900; color: #fff; margin: 0 0 6px; }
+.s8-desc  { font-size: 12px; color: #888; text-align: center; margin: 0 0 24px; line-height: 1.6; }
+.s8-tabs { display: flex; width: 100%; background: #1e1e1e; border-radius: 12px; padding: 4px; margin-bottom: 16px; }
+.s8-tab { flex: 1; padding: 9px; border: none; background: none; border-radius: 9px; font-size: 14px; font-weight: 700; color: #666; cursor: pointer; font-family: inherit; transition: background 0.15s, color 0.15s; }
+.s8-tab.active { background: #2eb86b; color: #fff; }
+.s8-form { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+.s8-input { width: 100%; padding: 13px 14px; background: #1e1e1e; border: 1px solid #333; border-radius: 10px; font-size: 14px; color: #fff; font-family: inherit; outline: none; box-sizing: border-box; transition: border-color 0.15s; }
+.s8-input:focus { border-color: #2eb86b; }
+.s8-input::placeholder { color: #555; }
+.s8-error { font-size: 12px; color: #f87171; margin: 0; text-align: center; }
+.s8-submit { width: 100%; padding: 14px; background: #2eb86b; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; color: #fff; cursor: pointer; font-family: inherit; margin-top: 4px; }
+.s8-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.s8-skip-btn { margin-top: 20px; background: none; border: none; font-size: 13px; color: #555; cursor: pointer; font-family: inherit; }
+.s8-done-icon  { font-size: 52px; margin-bottom: 12px; }
+.s8-done-title { font-size: 18px; font-weight: 900; color: #fff; margin: 0 0 10px; }
+.s8-done-sub   { font-size: 13px; color: #888; text-align: center; line-height: 1.8; margin: 0 0 24px; }
+.s8-done-sub strong { color: #ccc; }
+.s8-switch-btn { background: none; border: 1px solid #333; border-radius: 10px; padding: 12px 24px; font-size: 14px; font-weight: 700; color: #2eb86b; cursor: pointer; font-family: inherit; }

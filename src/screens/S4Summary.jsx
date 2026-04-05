@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import './S4Summary.css'
-import { recordTodaySaving, getMonthlyTotal } from '../api/storage'
+import { recordSavingForDate, getMonthlyTotal, todayStr } from '../api/storage'
 
-export default function S4Summary({ navigate, meals, completedMeals, settings }) {
+export default function S4Summary({ navigate, meals, completedMeals, settings, selectedDate }) {
   const totalCost    = meals.reduce((s, m) => s + m.cost, 0)
   const totalRetail  = meals.reduce((s, m) => s + m.retail, 0)
   const totalSaved   = totalRetail - totalCost
@@ -14,7 +14,7 @@ export default function S4Summary({ navigate, meals, completedMeals, settings })
   const [monthlyTotal, setMonthlyTotal] = useState(getMonthlyTotal)
   useEffect(() => {
     if (totalSaved > 0) {
-      recordTodaySaving(totalSaved)
+      recordSavingForDate(selectedDate ?? todayStr(), totalSaved)
       setMonthlyTotal(getMonthlyTotal())
     }
   }, [totalSaved])

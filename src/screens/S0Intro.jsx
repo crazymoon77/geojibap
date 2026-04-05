@@ -1,6 +1,6 @@
 import './S0Intro.css'
 
-export default function S0Intro({ navigate, hasPlan }) {
+export default function S0Intro({ navigate, hasPlan, favorites, user, logout }) {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({ title: '거지밥', text: '고물가 시대, 하루 1만원으로 건강하게!', url: window.location.href })
@@ -12,14 +12,11 @@ export default function S0Intro({ navigate, hasPlan }) {
 
   return (
     <div className="s0 screen-enter">
-      {/* 앰블럼 */}
       <div className="s0-hero">
         <div className="s0-emblem">🍚</div>
         <h1 className="s0-brand">거지밥</h1>
         <div className="s0-brand-line" />
       </div>
-
-      {/* 핵심 카피 */}
       <div className="s0-copy">
         <p className="s0-copy-headline">고물가 시대,</p>
         <p className="s0-copy-sub">그럼에도 하루하루 살아내는 우리.</p>
@@ -27,8 +24,6 @@ export default function S0Intro({ navigate, hasPlan }) {
         <p className="s0-copy-body">건강은 지키고, 지갑도 지키는</p>
         <p className="s0-copy-body bold">오늘 하루의 밥상 전략.</p>
       </div>
-
-      {/* 3가지 약속 */}
       <div className="s0-card">
         {[
           { icon: '💰', title: '예산 설정',   desc: '하루 예산으로 1~3끼 식단 자동 설계' },
@@ -44,26 +39,29 @@ export default function S0Intro({ navigate, hasPlan }) {
           </div>
         ))}
       </div>
-
-      {/* 다짐 문구 */}
       <div className="s0-vow">
         <p className="s0-vow-quote">"오늘부터 나는 현명하게 먹는다."</p>
         <p className="s0-vow-author">— 거지밥 사용자 선언</p>
       </div>
-
-      {/* CTA */}
       <div className="s0-actions">
         {hasPlan && (
-          <button className="s0-resume-btn" onClick={() => navigate('s2')}>
-            오늘 식단 이어서 보기 →
-          </button>
+          <button className="s0-resume-btn" onClick={() => navigate('s2')}>오늘 식단 이어서 보기 →</button>
         )}
         <button className="btn-primary s0-start-btn" onClick={() => navigate('s1')}>
           {hasPlan ? '새 식단 만들기' : '지금 바로 시작하기 →'}
         </button>
-        <button className="s0-share-btn" onClick={handleShare}>
-          📤 친구에게 거지밥 알리기
-        </button>
+        {favorites?.length > 0 && (
+          <button className="s0-favorites-btn" onClick={() => navigate('s7')}>★ 즐겨찾기 식단 {favorites.length}개</button>
+        )}
+        <button className="s0-share-btn" onClick={handleShare}>📤 친구에게 거지밥 알리기</button>
+        {user ? (
+          <div className="s0-auth-row">
+            <span className="s0-auth-email">{user.email}</span>
+            <button className="s0-logout-btn" onClick={logout}>로그아웃</button>
+          </div>
+        ) : (
+          <button className="s0-login-btn" onClick={() => navigate('s8')}>🔐 로그인 / 회원가입 (기기 간 동기화)</button>
+        )}
       </div>
     </div>
   )
