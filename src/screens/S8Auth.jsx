@@ -8,7 +8,8 @@ export default function S8Auth({ navigate }) {
   const [password, setPassword] = useState('')
   const [error, setError]       = useState('')
   const [loading, setLoading]   = useState(false)
-  const [done, setDone]         = useState(false)
+  const [done, setDone]           = useState(false)
+  const [loginSuccess, setLoginSuccess] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -22,12 +23,30 @@ export default function S8Auth({ navigate }) {
       } else {
         const { error: err } = await supabase.auth.signInWithPassword({ email, password })
         if (err) throw err
+        setLoginSuccess(true)
       }
     } catch (err) {
       setError(translateError(err.message))
     } finally {
       setLoading(false)
     }
+  }
+
+  if (loginSuccess) {
+    return (
+      <div className="s8 screen-enter">
+        <div className="s8-box">
+          <div className="s8-done-icon">✅</div>
+          <h2 className="s8-done-title">로그인 성공!</h2>
+          <p className="s8-done-sub">
+            <strong>{email}</strong>으로 로그인됐어요.<br /><br />
+            식단·즐겨찾기 기록이 이 기기에 저장되고,<br />
+            다른 기기에서 로그인해도 동일하게 보여요.
+          </p>
+          <button className="s8-confirm-btn" onClick={() => navigate('s0')}>확인</button>
+        </div>
+      </div>
+    )
   }
 
   if (done) {

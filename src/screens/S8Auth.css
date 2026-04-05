@@ -19,3 +19,4 @@
 .s8-done-sub   { font-size: 13px; color: #888; text-align: center; line-height: 1.8; margin: 0 0 24px; }
 .s8-done-sub strong { color: #ccc; }
 .s8-switch-btn { background: none; border: 1px solid #333; border-radius: 10px; padding: 12px 24px; font-size: 14px; font-weight: 700; color: #2eb86b; cursor: pointer; font-family: inherit; }
+.s8-confirm-btn { width: 100%; padding: 14px; background: #2eb86b; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; color: #fff; cursor: pointer; font-family: inherit; }
