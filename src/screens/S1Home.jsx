@@ -16,7 +16,39 @@ const BUDGET_MIN  = 5000
 const BUDGET_MAX  = 15000
 const BUDGET_STEP = 1000
 
-export default function S1Home({ navigate, generateAndNavigate, isLoading, settings, setSettings }) {
+const DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토']
+
+function addDays(dateStr, n) {
+  const d = new Date(dateStr + 'T00:00:00')
+  d.setDate(d.getDate() + n)
+  return [
+    d.getFullYear(),
+    String(d.getMonth() + 1).padStart(2, '0'),
+    String(d.getDate()).padStart(2, '0'),
+  ].join('-')
+}
+
+function dateLabel(dateStr, today) {
+  const diff = Math.round(
+    (new Date(dateStr + 'T00:00:00') - new Date(today + 'T00:00:00')) / 86400000
+  )
+  if (diff === 0) return '오늘'
+  if (diff === 1) return '내일'
+  if (diff === 2) return '모레'
+  if (diff > 0) return `${diff}일 후`
+  if (diff === -1) return '어제'
+  return `${Math.abs(diff)}일 전`
+}
+
+function formatDateKo(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00')
+  return `${d.getMonth() + 1}월 ${d.getDate()}일 (${DAY_NAMES[d.getDay()]})`
+}
+
+export default function S1Home({ navigate, generateAndNavigate, isLoading, settings, setSettings, selectedDate, setSelectedDate, today }) {
+  const label   = dateLabel(selectedDate, today)
+  const isToday = selectedDate === today
+
   const stepBudget = delta =>
     setSettings(s => ({ ...s, budget: Math.min(BUDGET_MAX, Math.max(BUDGET_MIN, s.budget + delta)) }))
 
@@ -35,8 +67,32 @@ export default function S1Home({ navigate, generateAndNavigate, isLoading, setti
 
       <div className="s1-body">
 
-        {/* 예산 — 스테퍼 */}
-        <p className="s1-section-title">오늘 예산을 설정하세요</p>
+        {/* 날짜 선택 */}
+        <p className="s1-section-title">언제 식단을 계획하시나요?</p>
+        <div className="s1-date-box">
+          <button
+            className="s1-budget-step"
+            onClick={() => setSelectedDate(addDays(selectedDate, -1))}
+            aria-label="하루 전"
+          >←</button>
+          <div className="s1-date-center">
+            <span className="s1-date-label">{label}</span>
+            <span className="s1-date-sub">{formatDateKo(selectedDate)}</span>
+          </div>
+          <button
+            className="s1-budget-step"
+            onClick={() => setSelectedDate(addDays(selectedDate, 1))}
+            aria-label="하루 후"
+          >→</button>
+        </div>
+        {!isToday && (
+          <button className="s1-today-reset" onClick={() => setSelectedDate(today)}>
+            오늘로 돌아가기
+          </button>
+        )}
+
+        {/* 예산 */}
+        <p className="s1-section-title">{label}의 예산을 설정하세요</p>
         <div className="s1-budget-box">
           <span className="s1-budget-icon">💰</span>
           <button
@@ -135,7 +191,7 @@ export default function S1Home({ navigate, generateAndNavigate, isLoading, setti
           onClick={generateAndNavigate}
           disabled={isLoading}
         >
-          {isLoading ? '식단 생성 중...' : '오늘의 거지밥 생성하기 →'}
+          {isLoading ? '식단 생성 중...' : `${label}의 거지밥 생성하기 →`}
         </button>
 
       </div>
