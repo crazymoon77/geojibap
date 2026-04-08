@@ -1,31 +1,33 @@
 import { Resvg } from '@resvg/resvg-js'
-import { readFileSync, writeFileSync, mkdirSync } from 'fs'
+import { writeFileSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = join(__dirname, '..')
 
-const svgData = readFileSync(join(root, 'public', 'favicon.svg'), 'utf-8')
-
-// 배경을 추가한 SVG 래퍼 (아이콘 패딩 포함, 배경 #111)
-function wrapSvg(size) {
-  const padding = Math.round(size * 0.15)
-  const inner = size - padding * 2
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
-  <rect width="${size}" height="${size}" rx="${Math.round(size * 0.22)}" fill="#111111"/>
-  <svg x="${padding}" y="${padding}" width="${inner}" height="${inner}" viewBox="0 0 48 46">
-    ${svgData.replace(/<svg[^>]*>/, '').replace('</svg>', '')}
-  </svg>
+function makeSvg(size) {
+  const r = Math.round(size * 0.5)         // 완전한 원형
+  const fontSize = Math.round(size * 0.52)
+  const emojiY = Math.round(size * 0.72)   // 이모지 세로 정렬 보정
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
+  <rect width="${size}" height="${size}" rx="${r}" fill="#2a2a2a"/>
+  <text
+    x="${size / 2}" y="${emojiY}"
+    font-size="${fontSize}"
+    text-anchor="middle"
+    font-family="Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, sans-serif"
+  >🍚</text>
 </svg>`
 }
 
-mkdirSync(join(root, 'public'), { recursive: true })
-
 for (const size of [192, 512]) {
-  const svg = wrapSvg(size)
-  const resvg = new Resvg(svg, { fitTo: { mode: 'width', value: size } })
+  const svg = makeSvg(size)
+  const resvg = new Resvg(svg, {
+    font: { loadSystemFonts: true },
+    fitTo: { mode: 'width', value: size },
+  })
   const png = resvg.render().asPng()
   writeFileSync(join(root, 'public', `icon-${size}.png`), png)
-  console.log(`✓ icon-${size}.png 생성 완료`)
+  console.log(`✓ icon-${size}.png`)
 }

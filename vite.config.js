@@ -10,7 +10,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'icon-192.png', 'icon-512.png'],
       manifest: {
-        name: '거지밥 — 하루 1만원 식단',
+        name: '거지밥',
         short_name: '거지밥',
         description: '고물가 시대, 하루 1만원으로 건강하게 먹는 식단 도우미',
         theme_color: '#863bff',
