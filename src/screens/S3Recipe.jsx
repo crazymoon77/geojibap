@@ -1,5 +1,6 @@
 import './S3Recipe.css'
 import { FALLBACK_MEALS } from '../api/fallback'
+import { getCoupangUrl } from '../lib/coupang'
 
 const DEFAULT_RECIPE = FALLBACK_MEALS[1]
 
@@ -53,6 +54,15 @@ export default function S3Recipe({ navigate, selectedRecipe, toggleMeal, complet
                 <span className="s3-ing-name">{ing.name}</span>
                 <span className="s3-ing-amount">{ing.amount}</span>
                 <span className="s3-ing-price">{ing.price}</span>
+                <a
+                  href={getCoupangUrl(ing.name)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="s3-ing-buy"
+                  onClick={e => e.stopPropagation()}
+                >
+                  🛒
+                </a>
               </div>
             ))}
           </div>

@@ -43,9 +43,21 @@
 }
 .s3-ingredient-row.even { background: var(--white); }
 .s3-ingredient-row.odd  { background: var(--accent-light); }
-.s3-ing-name   { font-size: 13px; font-weight: 700; color: var(--dark); width: 90px; }
+.s3-ing-name   { font-size: 13px; font-weight: 700; color: var(--dark); width: 80px; }
 .s3-ing-amount { font-size: 12px; color: var(--gray); flex: 1; }
-.s3-ing-price  { font-size: 12px; color: var(--gray); }
+.s3-ing-price  { font-size: 12px; color: var(--gray); margin-right: 8px; }
+.s3-ing-buy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #fee500;
+  font-size: 14px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
 
 .s3-steps { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
 .s3-step-row { display: flex; align-items: flex-start; gap: 10px; }

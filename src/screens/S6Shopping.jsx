@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import './S6Shopping.css'
+import { getCoupangUrl } from '../lib/coupang'
 
-export const getCoupangLink   = (name) => `https://www.coupang.com/np/search?q=${encodeURIComponent(name)}`
+export const getCoupangLink = getCoupangUrl
 export const getNaverShoppingLink = (name) => `https://search.shopping.naver.com/search/all?query=${encodeURIComponent(name)}`
 
 export default function S6Shopping({ navigate, meals }) {
@@ -63,7 +64,7 @@ export default function S6Shopping({ navigate, meals }) {
                       {ing.amount && <span className="s6-item-amount">{ing.amount}</span>}
                     </div>
                     <div className="s6-item-links" onClick={e => e.stopPropagation()}>
-                      <a href={getCoupangLink(ing.name)} target="_blank" rel="noopener noreferrer" className="s6-buy-btn s6-buy-coupang">쿠팡</a>
+                      <a href={getCoupangUrl(ing.name)} target="_blank" rel="noopener noreferrer" className="s6-buy-btn s6-buy-coupang">쿠팡</a>
                       <a href={getNaverShoppingLink(ing.name)} target="_blank" rel="noopener noreferrer" className="s6-buy-btn s6-buy-naver">네이버</a>
                     </div>
                   </div>
