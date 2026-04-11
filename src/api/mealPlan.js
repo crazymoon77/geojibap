@@ -54,12 +54,51 @@ function buildMeal(recipe, slotIndex, showTimeLabel) {
 }
 
 /**
+ * AI 에이전트로 메뉴 이름 추천받기
+ * 성공 시 FALLBACK_POOL에서 해당 메뉴 객체 반환, 실패 시 null
+ */
+async function fetchAISuggestions(settings, mealsCount) {
+  try {
+    const res = await fetch('/api/meal-suggest', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ settings }),
+    })
+    if (!res.ok) return null
+    const { meals: names } = await res.json()
+    const picked = names
+      .map(name => FALLBACK_POOL.find(r => r.name === name))
+      .filter(Boolean)
+    return picked.length === mealsCount ? picked : null
+  } catch {
+    return null
+  }
+}
+
+/**
  * 메인 식단 생성
  */
 export async function generateMealPlan(settings) {
   const mealsCount    = settings.mealsCount ?? 3
   const showTimeLabel = mealsCount === 3
 
+  // 1순위: AI 에이전트 추천
+  const aiPicked = await fetchAISuggestions(settings, mealsCount)
+  if (aiPicked) {
+    console.info('[거지밥] AI 에이전트 식단 생성 성공')
+    return {
+      meals: aiPicked.map((recipe, i) => ({
+        ...recipe,
+        id:     MEAL_SLOTS[i].id,
+        time:   showTimeLabel ? MEAL_SLOTS[i].time : '',
+        cost:   determineCost(recipe),
+        retail: estimateRetailPrice(determineCost(recipe)),
+      })),
+      fromAI: true,
+    }
+  }
+
+  // 2순위: 공공 API
   try {
     const diffKey = settings.difficulty.replace(/^[^\s]+\s/, '')
     let recipes   = await fetchCookrcpByDifficulty(diffKey, 200)

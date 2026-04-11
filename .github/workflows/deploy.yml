@@ -1,0 +1,34 @@
+name: 거지밥 배포 에이전트
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Vercel 프로덕션 배포
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Node.js 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 의존성 설치
+        run: npm ci
+
+      - name: Vercel CLI 설치
+        run: npm install -g vercel@latest
+
+      - name: Vercel 환경변수 동기화
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: 프로덕션 빌드
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Vercel 배포
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}

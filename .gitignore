@@ -29,3 +29,6 @@ dist-ssr
 .env
 
 .vercel
+
+# 빌드 산출물 — Vercel이 자동 빌드하므로 커밋 불필요
+dist
